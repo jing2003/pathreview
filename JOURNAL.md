@@ -29,13 +29,13 @@ The `/health` API endpoint checks the status of the application's dependencies, 
 
 ## Week 8 — Reproduction & solution planning
 
-**Reproduction commit link:**
+**Reproduction commit link:** https://github.com/jing2003/pathreview/commit/d3b55592a508db8b775c59a4a0ca2af58139b9be
 
 **Reproduction summary:**
 
 I reproduced the issue by logging a safety event through `SafetyMonitor` and confirming that the corresponding Redis counter increased. However, the `/health` endpoint still returned `safety_events_last_hour: 0` because the value is currently hard-coded instead of being read from the safety monitoring counters.
 
-**PLAN.md link:**
+**PLAN.md link:** https://github.com/jing2003/pathreview/blob/fix/68-safety-event-count-health-check/PLAN.md
 
 **Walkthrough video:** [issue reproduction walkthrough](https://drive.google.com/file/d/1O_rCACSvW8Om-m6tdWctpGYgcKOivh-g/view?usp=sharing)
 
