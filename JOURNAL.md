@@ -6,7 +6,7 @@
 
 **Issue title:** Add a safety event count to the health check endpoint
 
-**Tier:** [x] Tier 1  [ ] Tier 2  [ ] Tier 3
+**Tier:** [x] Tier 1 [ ] Tier 2 [ ] Tier 3
 
 **Problem summary:**
 
@@ -20,9 +20,9 @@ The `/health` API endpoint checks the status of the application's dependencies, 
 
 ### "Is this issue right for me?" checklist reasoning
 
-* The issue has a clearly defined expected result: the health endpoint should report recent safety event activity.
-* The issue identifies the two main files involved, which keeps the initial investigation focused.
-* It is labeled Tier 1 and has an estimated effort of two to four hours, making the scope appropriate for a first contribution to this codebase.
-* The change appears limited to the API and safety monitoring components and should not require frontend work or a database migration.
-* The existing health endpoint already contains a placeholder `safety_events_last_hour` field, so the primary task is connecting it to actual monitoring data and adding relevant tests.
-* One scope detail that requires investigation is that the current safety monitoring counters expire after 24 hours and the `window_hours` parameter is not currently enforced. I will examine the existing tests and usage patterns before deciding how the one-hour count should be calculated.
+- The issue has a clearly defined expected result: the health endpoint should report recent safety event activity.
+- The issue identifies the two main files involved, which keeps the initial investigation focused.
+- It is labeled Tier 1 and has an estimated effort of two to four hours, making the scope appropriate for a first contribution to this codebase.
+- The change appears limited to the API and safety monitoring components and should not require frontend work or a database migration.
+- The existing health endpoint already contains a placeholder `safety_events_last_hour` field, so the primary task is connecting it to actual monitoring data and adding relevant tests.
+- One scope detail that requires investigation is that the current safety monitoring counters expire after 24 hours and the `window_hours` parameter is not currently enforced. I will examine the existing tests and usage patterns before deciding how the one-hour count should be calculated.
