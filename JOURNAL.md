@@ -26,3 +26,17 @@ The `/health` API endpoint checks the status of the application's dependencies, 
 - The change appears limited to the API and safety monitoring components and should not require frontend work or a database migration.
 - The existing health endpoint already contains a placeholder `safety_events_last_hour` field, so the primary task is connecting it to actual monitoring data and adding relevant tests.
 - One scope detail that requires investigation is that the current safety monitoring counters expire after 24 hours and the `window_hours` parameter is not currently enforced. I will examine the existing tests and usage patterns before deciding how the one-hour count should be calculated.
+
+## Week 8 — Reproduction & solution planning
+
+**Reproduction commit link:**
+
+**Reproduction summary:**
+
+I reproduced the issue by logging a safety event through `SafetyMonitor` and confirming that the corresponding Redis counter increased. However, the `/health` endpoint still returned `safety_events_last_hour: 0` because the value is currently hard-coded instead of being read from the safety monitoring counters.
+
+**PLAN.md link:**
+
+**Walkthrough video:** [issue reproduction walkthrough](https://drive.google.com/file/d/1O_rCACSvW8Om-m6tdWctpGYgcKOivh-g/view?usp=sharing)
+
+**Blockers or open questions:**
