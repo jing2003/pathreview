@@ -61,7 +61,7 @@ I initially encountered formatting and type-checking blockers involving Ruff, Bl
 
 ### Check-in 2 (end of week)
 
-**PR link:** [link to your submitted pull request]
+**PR link:** https://github.com/jing2003/pathreview/pull/1
 
 **Branch:** `fix/68-safety-event-count-health-check`
 
