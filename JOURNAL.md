@@ -78,3 +78,47 @@ I added `tests/unit/test_safety_monitoring.py` to verify that safety event count
 The equivalent focused checks currently pass: Ruff, Black, MyPy, the new unit tests, and the full `tests/unit` suite. I will check the boxes after running the exact `make check` and `make test-unit` commands.
 
 **Draft PR feedback received from:** none
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes [x] No — still awaiting review
+
+**Summary of feedback:** No reviewer feedback has been received yet.
+
+**How you responded:**
+
+No changes were required because the pull request is still awaiting review. I will respond to any requested changes or questions once feedback is provided.
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+
+What surprised me most was the amount of time I spent reading and understanding the existing codebase. I had to trace through multiple files to understand how safety events are recorded, how Redis is configured, and how the health endpoint is structured. Although adding a safety event count initially seemed straightforward, it required a deeper understanding of the codebase and its dependencies than I anticipated. Testing the behavior under different dependency states also took additional time.
+
+**What did you learn about working in a large codebase?**
+
+When building my own projects, I have complete control over the architecture and design decisions. In contrast, contributing to a large codebase requires understanding and respecting its existing patterns, conventions, and dependencies. I learned the importance of reading documentation, tracing code paths across multiple modules, reviewing existing tests, and making focused changes that minimize unintended side effects.
+
+I also learned that a small feature can depend on several parts of a system. For this issue, the health endpoint, Redis configuration, safety monitoring logic, and test setup all needed to work together.
+
+**How did AI tools help — and where did they fall short?**
+
+AI tools were helpful for explaining unfamiliar Python features, suggesting initial implementation approaches, identifying possible edge cases, and generating ideas for test cases. They also helped me interpret errors while running the application and tests.
+
+However, AI tools did not fully understand the specific structure and expectations of the PathReview codebase. Some suggestions needed to be adjusted after I reviewed how safety event types, Redis keys, dependency checks, and the health endpoint were already implemented. I verified AI-generated suggestions by reading the source code, running the formatter and linter, executing tests, and manually checking the health endpoint and safety event counts.
+
+**What would you do differently if you started over?**
+
+I would spend more time upfront reading the relevant parts of the codebase before finalizing my implementation plan. In particular, I would trace the complete path from recording a safety event to retrieving its count before beginning any code changes. This would help me identify dependencies and testing requirements earlier.
+
+I would also set aside dedicated time for environment setup, integration testing, and debugging. Some issues were related to local services such as PostgreSQL and Redis rather than the feature itself, so separating environment problems from implementation problems earlier would have made the process more efficient.
+
+**What are you most proud of from this module?**
+
+I am most proud of my ability to navigate and understand a large, unfamiliar codebase. Despite the initial challenges, I identified the relevant components, implemented the safety event count for the health endpoint, and added tests to verify the new behavior.
+
+I am also proud that I did not rely solely on generated code. I reviewed the existing implementation, adjusted my solution to follow the project's conventions, and verified the results through automated and manual testing. This experience strengthened my confidence in contributing to open-source projects and improved my problem-solving skills in a collaborative development environment.
